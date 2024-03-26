@@ -14,11 +14,11 @@ const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
   useEffect(() => {
-    const setProviderss = async() => {
+    const setUpProviders = async() => {
         const response = await getProviders();
         setProviders(response);
     }
-    setProviderss();
+    setUpProviders();
   },[])
 
   return (
@@ -32,6 +32,8 @@ const Nav = () => {
          />
           <p className='logo_text'>Next JS Blog</p>
       </Link>
+
+      {/* {alert(session?.user)} */}
 
        {/* Desktop Navigation */}
        <div className='sm:flex hidden'>
@@ -65,7 +67,7 @@ const Nav = () => {
                   onClick={() => {
                     signIn(provider.id);
                   }}
-                  className='black_btn'
+                  className='black_btn signin-desktop'
                 >
                   Sign in
                 </button>
