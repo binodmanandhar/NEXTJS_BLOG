@@ -4,8 +4,7 @@ import Feed from "@components/Feed";
 export default function Home() {
   return (
     <section className="w-full flex-center flex-col">
-      <p>  {process.env.GOOGLE_ID}</p>
-      <h1 className="head_text text-center">Discover & Share
+      <h1 className="head_text text-center">Discover & Share your
         <br className="max-md:hidden" />
         <span className="orange_gradient text-center"> AI-Powered Prompts</span>
       </h1>
