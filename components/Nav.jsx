@@ -36,8 +36,6 @@ const Nav = () => {
       {/* {alert(session?.user)} */}
       {/* {alert(providers)} */}
 
-      {console.log(providers)}
-
        {/* Desktop Navigation */}
        <div className='sm:flex hidden desktop'>
         {session?.user ? (
