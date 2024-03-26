@@ -8,7 +8,7 @@ import {signIn, signOut, useSession, getProviders } from 'next-auth/react';
 import { set } from 'mongoose';
 
 const Nav = () => {
-  const {data: session } = useSession;
+  const { session } = useSession;
   // const isUserLoggedIn = true;
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false)
@@ -34,9 +34,12 @@ const Nav = () => {
       </Link>
 
       {/* {alert(session?.user)} */}
+      {/* {alert(providers)} */}
+
+      {console.log(providers)}
 
        {/* Desktop Navigation */}
-       <div className='sm:flex hidden'>
+       <div className='sm:flex hidden desktop'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
             <Link href='/create-prompt' className='black_btn'>
@@ -48,7 +51,7 @@ const Nav = () => {
             </button>
 
             <Link href='/profile'>
-              
+
               <Image
                 src={session?.user.image}
                 width={32}
@@ -64,6 +67,7 @@ const Nav = () => {
               Object.values(providers).map((provider) => (
                 <button
                   type='button'
+                  data-name={provider.name}
                   key={provider.name}
                   onClick={() => {
                     signIn(provider.id);
@@ -79,7 +83,7 @@ const Nav = () => {
 
 
        {/* Mobile Navigation */}
-       <div className='sm:hidden flex relative'>
+       <div className='sm:hidden flex relative tst-mob'>
        {session?.user ? (
          <div className='flex'>
 
